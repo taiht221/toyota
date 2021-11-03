@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  AOS.init()
   function menuTop() {
     if ($(this).scrollTop() >= 300) {
       $('.header').addClass('active')
