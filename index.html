@@ -24,6 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap"
         rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -54,7 +55,7 @@
             <div class="container">
                 <div class="row flex-around">
                     <div class="col-lg-6 register__left">
-                        <div class="register__img">
+                        <div class="register__img" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
                             <img src="images/moto.png" alt="">
                         </div>
                         <div class="register__text">
@@ -86,10 +87,10 @@
                                         <img src="images/downward-arrow.png" alt="">
                                     </div>
                                 </select>
-                                <div class="leave1">
+                                <div class="leave1" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
                                     <img src="images/Vector-Smart-Object3.png" alt="">
                                 </div>
-                                <div class="leave2">
+                                <div class="leave2" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
                                     <img src="images/Vector-Smart-Object4.png" alt="">
                                 </div>
 
@@ -133,19 +134,19 @@
             <div class="container">
                 <div class="row">
                     <div class="icons__wrap">
-                        <div class="icon">
+                        <div class="icon" data-aos="zoom-in">
                             <img src="images/img-03.jpg" alt="">
                         </div>
-                        <div class="icon">
+                        <div class="icon" data-aos="zoom-in">
                             <img src="images/img-05.jpg" alt="">
                         </div>
-                        <div class="icon">
+                        <div class="icon" data-aos="zoom-in">
                             <img src="images/img-07.jpg" alt="">
                         </div>
-                        <div class="icon">
+                        <div class="icon" data-aos="zoom-in">
                             <img src="images/img-09.jpg" alt="">
                         </div>
-                        <div class="leaf">
+                        <div class="leaf" data-aos="zoom-in">
                             <img src="images/leaf3.png" alt="">
                         </div>
                     </div>
@@ -162,18 +163,18 @@
                 <div class="row">
                     <div class="corrolla__color col-lg-6">
                         <div class="img">
-                            <img src="images/Hybrid_landing-page-2_19.jpg" alt="">
+                            <img id="productImage" src="images/gray.jpg" alt="">
                         </div>
-                        <p>Màu xám - 1K3</p>
-                        <div class="pick">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                        <p id="product-colorName">Màu xám - 1K3</p>
+                        <ul class="pick">
+                            <li data-color="metal" class="color"></li>
+                            <li data-color="black" class="color"></li>
+                            <li data-color="red" class="color"></li>
+                            <li data-color="white" class="color"></li>
+                            <li data-color="gray" class="color"></li>
+                            <li data-color="graphite" class="color"></li>
+                            <li data-color="blue" class="color"></span>
+                        </ul>
                     </div>
                     <div class="corrolla__infor col-lg-6">
                         <p>
@@ -260,6 +261,7 @@
     </div>
     <script type="text/javascript" src="dest/jsmain.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 
 </html>
