@@ -286,21 +286,87 @@ $(document).ready(function () {
   })
 
   //  Choose Province
-  $('.province').on('change', function () {
-    $('.retailer').html('')
+  $('.register-form1 .province').on('change', function () {
+    $('.register-form1 .retailer').html('')
     const value = LOCATION[this.value]
     value.map((e) => {
-      $('.retailer').append(`<option value="${e.value}">${e.value}</option>`)
+      $('.register-form1 .retailer').append(
+        `<option value="${e.value}">${e.value}</option>`,
+      )
     })
   })
-
+  $('.register-form2 .province').on('change', function () {
+    $('.register-form2 .retailer').html('')
+    const value = LOCATION[this.value]
+    value.map((e) => {
+      $('.register-form2 .retailer').append(
+        `<option value="${e.value}">${e.value}</option>`,
+      )
+    })
+  })
+  // validate form
+  $.validator.addMethod(
+    'phoneReg',
+    function (value) {
+      return /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/.test(
+        value,
+      )
+    },
+    'Xin hãy nhập đúng số điện thoại',
+  )
+  $('.register-form1').validate({
+    rules: {
+      fullname: {
+        required: true,
+        minlength: 1,
+      },
+      phonenumber: {
+        number: true,
+        required: true,
+        phoneReg: true,
+      },
+    },
+    messages: {
+      fullname: {
+        required: 'Vui lòng nhập họ và tên',
+        minlength: 'Vui lòng nhập ít nhất 1 ký tự',
+      },
+      phonenumber: {
+        number: 'Vui lòng nhập định dạng số',
+        required: 'Vui lòng nhập số điện thoại',
+      },
+    },
+  })
+  $('.register-form2').validate({
+    rules: {
+      fullname: {
+        required: true,
+        minlength: 1,
+      },
+      phonenumber: {
+        number: true,
+        required: true,
+        phoneReg: true,
+      },
+    },
+    messages: {
+      fullname: {
+        required: 'Vui lòng nhập họ và tên',
+        minlength: 'Vui lòng nhập ít nhất 1 ký tự',
+      },
+      phonenumber: {
+        number: 'Vui lòng nhập định dạng số',
+        required: 'Vui lòng nhập số điện thoại',
+      },
+    },
+  })
   // Submit Form
-  $('#register-form').on('submit', function (e) {
+  $('.register-form1').on('submit', function (e) {
     e.preventDefault()
-    var name = $("input[name='fullname']", this).val()
-    var phoneNumber = $("input[name='phonenumber']", this).val()
-    var province = $('.province').val()
-    var retailer = $('.retailer').val()
+    var name = $(".register-form1 input[name='fullname']").val()
+    var phoneNumber = $(".register-form1 input[name='phonenumber']").val()
+    var province = $('.register-form1 .province').val()
+    var retailer = $('.register-form1 .retailer').val()
     $.ajax({
       data: {
         name: name,
@@ -311,14 +377,49 @@ $(document).ready(function () {
       url: 'https://client-pages.adnetwork.vn/control/API/Toyota_Nov2021.php',
       type: 'post',
       success: function (res) {
-        if (res.status === 'ok') {
-          $('.homepage').css('display', 'none')
-          $('#modal').addClass('active')
-          window.location.replace('https://www.toyota.com.vn/xe-moi')
+        if (res === 'phone') {
+          $('.er-phone1').css('display', 'block')
+        } else {
+          if (JSON.parse(res).status === 'ok') {
+            $('.homepage').css('display', 'none')
+            $('#modal').addClass('active')
+            window.location.replace('https://www.toyota.com.vn/xe-moi')
+          }
         }
       },
       error: function (res) {
-        alert('lỗi')
+        alert('Có lỗi xảy ra vui lòng nhập lại')
+      },
+    })
+  })
+  $('.register-form2').on('submit', function (e) {
+    e.preventDefault()
+    var name = $(".register-form2 input[name='fullname']").val()
+    var phoneNumber = $(".register-form2 input[name='phonenumber']").val()
+    var province = $('.register-form2 .province').val()
+    var retailer = $('.register-form2 .retailer').val()
+    $.ajax({
+      data: {
+        name: name,
+        phone: phoneNumber,
+        city: province,
+        agency: retailer,
+      },
+      url: 'https://client-pages.adnetwork.vn/control/API/Toyota_Nov2021.php',
+      type: 'post',
+      success: function (res) {
+        if (res === 'phone') {
+          $('.er-phone2').css('display', 'block')
+        } else {
+          if (JSON.parse(res).status === 'ok') {
+            $('.homepage').css('display', 'none')
+            $('#modal').addClass('active')
+            window.location.replace('https://www.toyota.com.vn/xe-moi')
+          }
+        }
+      },
+      error: function (res) {
+        alert('Có lỗi xảy ra vui lòng nhập lại')
       },
     })
   })

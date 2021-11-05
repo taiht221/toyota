@@ -63,10 +63,11 @@
                     </div>
                     <div class="col-lg-6 register__right">
                         <div class="register__form">
-                            <form action="#" id="register-form">
+                            <form action="#" class="register-form register-form1">
                                 <p class="text">Đăng kí trải nghiệm các dòng xe Hybrid mới</p>
-                                <input type="text" id="fname" name="fullname" placeholder="Họ và tên">
-                                <input type="text" id="pnumber" name="phonenumber" placeholder="Số điện thoại">
+                                <span class="er-phone er-phone1">Số điện thoại đã được đăng kí vui lòng nhập lại</span>
+                                <input type="text" class="fname" name="fullname" placeholder="Họ và tên">
+                                <input type="text" class="pnumber" name="phonenumber" placeholder="Số điện thoại">
                                 <select class="province classic" name="country">
                                     <option value="">Chọn tỉnh thành</option>
                                     <option value="An Giang">An Giang</option>
@@ -111,7 +112,7 @@
                                     <img src="images/Vector-Smart-Object4.png" alt="">
                                 </div>
 
-                                <input type="submit" value="Đăng ký thông tin">
+                                <input type="submit" value="Đăng ký thông tin" id="btnsend1">
                             </form>
                         </div>
 
@@ -229,9 +230,10 @@
                     </div>
                     <div class="col-lg-6 register__right">
                         <div class="register__form">
-                            <form action="#" id="register-form">
-                                <input type="text" id="fname" name="fullname" placeholder="Họ và tên">
-                                <input type="text" id="pnumber" name="phonenumber" placeholder="Số điện thoại">
+                            <form action="#" class="register-form register-form2">
+                                <span class="er-phone er-phone2">Số điện thoại đã được đăng kí vui lòng nhập lại</span>
+                                <input type="text" class="fname" name="fullname" placeholder="Họ và tên">
+                                <input type="text" class="pnumber" name="phonenumber" placeholder="Số điện thoại">
                                 <select class="province classic" name="country">
                                     <option value="">Chọn tỉnh thành</option>
                                     <option value="An Giang">An Giang</option>
@@ -304,6 +306,8 @@
     </div>
     <script type="text/javascript" src="dest/jsmain.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript"
+        src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 </body>
 
 </html>
